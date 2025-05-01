@@ -1,6 +1,6 @@
 # Experiment 5: Subqueries and Views
-## Name:Tirupathi Jayadeep
-## Reg.no:2122223240169
+## Name: Tirupathi Jayadeep
+## Reg.no: 212223240169
 ## AIM
 To study and implement subqueries and views.
 
@@ -21,19 +21,24 @@ A subquery is a query inside another SQL query and is embedded in:
   A subquery is evaluated once for the entire parent statement whereas a correlated Sub query is evaluated once per row processed by the parent statement.
 
 *Example:*
+
 sql
+```
 SELECT * FROM employees
 WHERE salary > (SELECT AVG(salary) FROM employees);
-
+```
 ### Views
 A view is a virtual table based on the result of an SQL SELECT query.
 *Create View:*
+
 sql
+```
 CREATE VIEW view_name AS
 SELECT column1, column2 FROM table_name WHERE condition;
-
+```
 *Drop View:*
 sql
+
 DROP VIEW view_name;
 
 
@@ -42,7 +47,7 @@ DROP VIEW view_name;
 Write a SQL query to List departments with names longer than the average length
 
 Departments Table
-
+```
 SELECT department_id,department_name
 from Departments
 WHERE LENGTH (department_name)>
@@ -50,7 +55,7 @@ WHERE LENGTH (department_name)>
 SELECT AVG(LENGTH(department_name))
 FROM Departments
 )
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/61c5fa76-63eb-4a4e-b5f4-b35c61c8f60d)
@@ -68,10 +73,11 @@ ID NAME AGE ADDRESS SALARY
 
 7 Muffy 24 Indore 10000
 
+```
 SELECT * 
 FROM CUSTOMERS
 WHERE SALARY > 1500;
-
+```
 
 *Output:*
 
@@ -81,7 +87,7 @@ WHERE SALARY > 1500;
 *Question 3*
 
 Write a SQL query to Find employees who have an age less than the average age of employees with incomes over 2.5 Lakh
-
+```
 SELECT id,name,age,city,income
 FROM Employee
 WHERE age < (
@@ -89,7 +95,7 @@ WHERE age < (
     FROM Employee
     WHERE income > 250000
 );
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/59b67b38-518e-4d14-a96c-8b4da0ccc4b2)
@@ -106,11 +112,11 @@ ID NAME AGE ADDRESS SALARY
 1 Ramesh 32 Ahmedabad 2000 2 Khilan 25 Delhi 1500 3 Kaushik 23 Kota 2000 4 Chaitali 25 Mumbai 6500 5 Hardik 27 Bhopal 8500 6 Komal 22 Hyderabad 4500
 
 7 Muffy 24 Indore 10000
-
+```
 SELECT * 
 FROM CUSTOMERS
 WHERE AGE < 30;
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/596208e4-a577-46e2-85c9-df2cabf3ebea)
@@ -126,11 +132,11 @@ ID NAME AGE ADDRESS SALARY
 1 Ramesh 32 Ahmedabad 2000 2 Khilan 25 Delhi 1500 3 Kaushik 23 Kota 2000 4 Chaitali 25 Mumbai 6500 5 Hardik 27 Bhopal 8500 6 Komal 22 Hyderabad 4500
 
 7 Muffy 24 Indore 10000
-
+```
 SELECT * 
 FROM CUSTOMERS
 WHERE ADDRESS = 'Delhi';
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/dd79dbfe-1345-4e4e-94a4-157427fa70a6)
@@ -151,13 +157,13 @@ name type
 
 customer_id int cust_name text city text grade int salesman_id int
 
-
+```
 SELECT s.salesman_id, s.name
 FROM salesman s
 JOIN customer c ON s.salesman_id = c.salesman_id
 GROUP BY s.salesman_id, s.name
 HAVING COUNT(c.customer_id) > 1;
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/b8aa43ee-fadc-4fbc-b6a7-f3ab07754e5f)
@@ -177,7 +183,7 @@ customer table
 name type
 
 customer_id int cust_name text city text grade int salesman_id int
-
+```
 SELECT *
 FROM customer
 WHERE customer_id = (
@@ -185,7 +191,7 @@ WHERE customer_id = (
     FROM salesman s
     WHERE s.name = 'Mc Lyon'
 );
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/aa53bb8e-7d8a-4102-9e6e-574d94cdb1c6)
@@ -202,11 +208,11 @@ ID NAME AGE ADDRESS SALARY
 
 7 Muffy 24 Indore 10000
 
-
+```
 SELECT * 
 FROM CUSTOMERS
 WHERE SALARY > 4500;
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/1a6d62f1-ad8b-4e1f-a5ca-ba0c46e29b6a)
@@ -221,7 +227,7 @@ SAMPLE TABLE: customer
 name type
 
 id INTEGER name TEXT city TEXT email TEXT phone INTEGER
-
+```
 SELECT name
 FROM customer
 WHERE phone NOT IN (
@@ -230,16 +236,17 @@ WHERE phone NOT IN (
     GROUP BY phone
     HAVING COUNT(*) > 1
 );
-
+```
 
 *Output:*
-![WhatsApp Image 2025-05-01 at 13 30 16_74d8e389](https://github.com/user-attachments/assets/1846cd0a-1500-496e-90b0-4f12da1cf18a)
+
+![DBMS EXP-5](https://github.com/user-attachments/assets/25641270-a077-48fc-8636-27bcd0cd50e6)
 
 
 *Question 10*
 
 Write a SQL query that retrieve all the columns from the table "Grades", where the grade is equal to the maximum grade achieved in each subject.
-
+```
 SELECT *
 FROM Grades g
 WHERE grade = (
@@ -248,7 +255,7 @@ WHERE grade = (
     WHERE subject = g.subject
     GROUP BY subject
 );
-
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/ee3ffb42-51f2-473e-9621-f5a8c3772024)
