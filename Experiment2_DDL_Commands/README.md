@@ -263,7 +263,7 @@ Note: The Subject and MARKS columns will use their default values.
 ```
 insert into Student_details(RollNo,Name,Gender)
 values(204,"Samuel Black","M");
-```
+``
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/9d1f9460-2ad8-4479-99d2-7a8a2d5f5797)
