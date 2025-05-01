@@ -209,7 +209,7 @@ Sample table: customer
 customer_id | cust_name | city | grade | salesman_id -------------+----------------+------------+-------+------------- 3002 | Nick Rimando | New York | 100 | 5001 3007 | Brad Davis | New York | 200 | 5001 3005 | Graham Zusi | California | 200 | 5002
 ```
 ALTER TABLE customer  ADD COLUMN discount DECIMAL(5,2);
-``
+```
 
 *Output:*
 
@@ -263,7 +263,7 @@ Note: The Subject and MARKS columns will use their default values.
 ```
 insert into Student_details(RollNo,Name,Gender)
 values(204,"Samuel Black","M");
-``
+```
 *Output:*
 
 ![image](https://github.com/user-attachments/assets/9d1f9460-2ad8-4479-99d2-7a8a2d5f5797)
